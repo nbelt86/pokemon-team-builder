@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import './App.css'
+import ResultsList from './components/ResultsList'
 
+const fakeResults = ["Pikachu", "Charmander", "Bulbasaur"]
 function App() {
   const [count, setCount] = useState(0)
 
@@ -10,6 +12,8 @@ function App() {
 
         <div>
           <h1>Pokemon Builder!</h1>
+
+          <ResultsList results={fakeResults} />
 
         </div>
         <button
