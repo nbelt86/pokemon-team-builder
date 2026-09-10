@@ -1,14 +1,19 @@
 import { useState } from 'react'
 import './App.css'
 import ResultsList from './components/ResultsList'
+import SearchBar from './components/SearchBar'
+import TeamPanel from './components/TeamPanel'
 
 const fakeResults = ["Pikachu", "Charmander", "Bulbasaur"]
+const fakeTeam = ["Charizard", "Gengar", "Snorlax"]
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <>
       <section id="center">
+
+        <SearchBar />
 
         <div>
           <h1>Pokemon Builder!</h1>
@@ -24,6 +29,9 @@ function App() {
           Count is {count}
         </button>
       </section>
+      <div>
+        <TeamPanel team={fakeTeam} />
+      </div>
 
       <div className="ticks"></div>
 
