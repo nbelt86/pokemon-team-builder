@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import './App.css'
 import ResultsList from './components/ResultsList'
-import SearchBar from './components/SearchBar'
 import TeamPanel from './components/TeamPanel'
+import SearchBar from './components/SearchBar'
 
 const fakeResults = ["Pikachu", "Charmander", "Bulbasaur"]
 const fakeTeam = ["Charizard", "Gengar", "Snorlax"]
