@@ -6,6 +6,9 @@ import SearchBar from './components/SearchBar'
 
 const fakeResults = ["Pikachu", "Charmander", "Bulbasaur"]
 const fakeTeam = ["Charizard", "Gengar", "Snorlax"]
+function handleSearch(query) {
+  console.log("searching for:", query)
+}
 function App() {
   const [count, setCount] = useState(0)
 
@@ -13,7 +16,7 @@ function App() {
     <>
       <section id="center">
 
-        <SearchBar />
+        <SearchBar onSearch={handleSearch} />
 
         <div>
           <h1>Pokemon Builder!</h1>
