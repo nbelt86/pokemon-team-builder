@@ -6,11 +6,15 @@ import SearchBar from './components/SearchBar'
 
 const fakeResults = ["Pikachu", "Charmander", "Bulbasaur"]
 const fakeTeam = ["Charizard", "Gengar", "Snorlax"]
-function handleSearch(query) {
-  console.log("searching for:", query)
-}
+
 function App() {
   const [count, setCount] = useState(0)
+  const [results, setResults] = useState(fakeResults)
+
+  async function handleSearch(query) {
+  const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${query.toLowerCase()}`)
+  console.log(response)
+}
 
   return (
     <>
@@ -21,7 +25,7 @@ function App() {
         <div>
           <h1>Pokemon Builder!</h1>
 
-          <ResultsList results={fakeResults} />
+          <ResultsList results={results} />
 
         </div>
         <button
