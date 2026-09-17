@@ -13,7 +13,12 @@ function App() {
 
   async function handleSearch(query) {
   const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${query.toLowerCase()}`)
-  console.log(response)
+  if (response.ok === true) {
+    const data = await response.json()
+    setResults([data.name])
+  } else {
+    setResults([])
+  }
 }
 
   return (
