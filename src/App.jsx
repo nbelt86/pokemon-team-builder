@@ -4,18 +4,17 @@ import ResultsList from './components/ResultsList'
 import TeamPanel from './components/TeamPanel'
 import SearchBar from './components/SearchBar'
 
-const fakeResults = ["Pikachu", "Charmander", "Bulbasaur"]
 const fakeTeam = ["Charizard", "Gengar", "Snorlax"]
 
 function App() {
   const [count, setCount] = useState(0)
-  const [results, setResults] = useState(fakeResults)
+  const [results, setResults] = useState([])
 
   async function handleSearch(query) {
   const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${query.toLowerCase()}`)
   if (response.ok === true) {
     const data = await response.json()
-    setResults([data.name])
+    setResults([data])
   } else {
     setResults([])
   }
