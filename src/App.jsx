@@ -9,6 +9,7 @@ const fakeTeam = ["Charizard", "Gengar", "Snorlax"]
 function App() {
   const [count, setCount] = useState(0)
   const [results, setResults] = useState([])
+  const [team, setTeam] = useState(fakeTeam)
 
   async function handleSearch(query) {
   const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${query.toLowerCase()}`)
@@ -19,7 +20,11 @@ function App() {
     setResults([])
   }
 }
-
+  function handleAddToTeam(pokemon) {
+    if (team.length < 6) {
+      setTeam([...team, pokemon])
+    }
+  }
   return (
     <>
       <section id="center">
@@ -41,7 +46,7 @@ function App() {
         </button>
       </section>
       <div>
-        <TeamPanel team={fakeTeam} />
+        <TeamPanel team={team} />
       </div>
 
       <div className="ticks"></div>
