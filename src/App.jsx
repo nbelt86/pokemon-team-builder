@@ -7,7 +7,10 @@ import SearchBar from './components/SearchBar'
 function App() {
   const [count, setCount] = useState(0)
   const [results, setResults] = useState([])
-  const [team, setTeam] = useState([])
+  const [team, setTeam] = useState(() => {
+    const saved = localStorage.getItem('team')
+    return saved ? JSON.parse(saved) : []
+  })
 
   useEffect(() => {
     localStorage.setItem('team', JSON.stringify(team))
