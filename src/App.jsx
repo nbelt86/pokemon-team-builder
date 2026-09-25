@@ -24,6 +24,9 @@ function App() {
       setTeam([...team, pokemon])
     }
   }
+  function handleRemoveFromTeam(pokemonId) {
+    setTeam(team.filter(member => member.id !== pokemonId))
+  }
   return (
     <>
       <section id="center">
@@ -45,7 +48,7 @@ function App() {
         </button>
       </section>
       <div>
-        <TeamPanel team={team} />
+        <TeamPanel team={team} onRemoveFromTeam={handleRemoveFromTeam}/>
       </div>
 
       <div className="ticks"></div>
