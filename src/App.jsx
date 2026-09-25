@@ -4,12 +4,10 @@ import ResultsList from './components/ResultsList'
 import TeamPanel from './components/TeamPanel'
 import SearchBar from './components/SearchBar'
 
-const fakeTeam = ["Charizard", "Gengar", "Snorlax"]
-
 function App() {
   const [count, setCount] = useState(0)
   const [results, setResults] = useState([])
-  const [team, setTeam] = useState(fakeTeam)
+  const [team, setTeam] = useState([])
 
   async function handleSearch(query) {
   const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${query.toLowerCase()}`)
@@ -21,7 +19,8 @@ function App() {
   }
 }
   function handleAddToTeam(pokemon) {
-    if (team.length < 6) {
+    const alreadyOnTeam = team.some(member => member.id === pokemon.id)
+    if (team.length < 6 && !alreadyOnTeam) {
       setTeam([...team, pokemon])
     }
   }
@@ -34,7 +33,7 @@ function App() {
         <div>
           <h1>Pokemon Builder!</h1>
 
-          <ResultsList results={results} />
+          <ResultsList results={results} onAddToTeam={handleAddToTeam} />
 
         </div>
         <button

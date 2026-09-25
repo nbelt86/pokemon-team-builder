@@ -1,7 +1,7 @@
 function TeamPanel({team}) {
   return (
     <ul>
-      {team.map(name=> <li key={name}>{name}</li>)}
+      {team.map(pokemon=> <li key={pokemon.id}>{pokemon.name}</li>)}
     </ul>
   )
 }
