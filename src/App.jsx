@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './App.css'
 import ResultsList from './components/ResultsList'
 import TeamPanel from './components/TeamPanel'
@@ -8,6 +8,10 @@ function App() {
   const [count, setCount] = useState(0)
   const [results, setResults] = useState([])
   const [team, setTeam] = useState([])
+
+  useEffect(() => {
+    localStorage.setItem('team', JSON.stringify(team))
+  },[team])
 
   async function handleSearch(query) {
   const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${query.toLowerCase()}`)
