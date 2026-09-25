@@ -11,12 +11,14 @@ function App() {
     const saved = localStorage.getItem('team')
     return saved ? JSON.parse(saved) : []
   })
+  const [isLoading, setIsLoading] = useState(false)
 
   useEffect(() => {
     localStorage.setItem('team', JSON.stringify(team))
   },[team])
 
   async function handleSearch(query) {
+  setIsLoading(true)
   const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${query.toLowerCase()}`)
   if (response.ok === true) {
     const data = await response.json()
@@ -24,6 +26,7 @@ function App() {
   } else {
     setResults([])
   }
+  setIsLoading(false)
 }
   function handleAddToTeam(pokemon) {
     const alreadyOnTeam = team.some(member => member.id === pokemon.id)
