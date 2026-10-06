@@ -1,4 +1,8 @@
-function ResultsList({results, onAddToTeam}) {
+function ResultsList({results, onAddToTeam, isLoading}) {
+  if (isLoading) {
+    return <p>Searching...</p>
+  }
+
   return (
     <ul>
   {results.map(pokemon => (

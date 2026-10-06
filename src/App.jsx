@@ -46,7 +46,7 @@ function App() {
         <div>
           <h1>Pokemon Builder!</h1>
 
-          <ResultsList results={results} onAddToTeam={handleAddToTeam} />
+          <ResultsList results={results} onAddToTeam={handleAddToTeam} isLoading={isLoading} />
 
         </div>
         <button
