@@ -5,7 +5,6 @@ import TeamPanel from './components/TeamPanel'
 import SearchBar from './components/SearchBar'
 
 function App() {
-  const [count, setCount] = useState(0)
   const [results, setResults] = useState([])
   const [team, setTeam] = useState(() => {
     const saved = localStorage.getItem('team')
@@ -49,24 +48,10 @@ function App() {
           <ResultsList results={results} onAddToTeam={handleAddToTeam} isLoading={isLoading} />
 
         </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
       </section>
       <div>
         <TeamPanel team={team} onRemoveFromTeam={handleRemoveFromTeam}/>
       </div>
-
-      <div className="ticks"></div>
-
-
-
-      <div className="ticks"></div>
-      <section id="spacer"></section>
     </>
   )
 }

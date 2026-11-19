@@ -1,16 +1,30 @@
-# React + Vite
+# Pokemon Team Builder
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A small React app for searching Pokémon and building a team of up to six — built while learning React state, effects, and working with a public API.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **Search** — looks up a Pokémon by name via [PokeAPI](https://pokeapi.co)
+- **Results** — shows the Pokémon's sprite and types, with a button to add it to your team
+- **Team** — holds up to 6 Pokémon, each removable individually; duplicates are blocked
+- **Persistence** — your team is saved to `localStorage`, so it survives a page refresh
 
-## React Compiler
+## Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React 19 + Vite, no backend — all data comes live from PokeAPI
+- Team state persisted client-side via `localStorage`
 
-## Expanding the ESLint configuration
+## Setup
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```bash
+npm install
+npm run dev
+```
+
+Then visit the local URL Vite prints (typically `http://localhost:5173`).
+
+## Linting
+
+```bash
+npm run lint
+```
